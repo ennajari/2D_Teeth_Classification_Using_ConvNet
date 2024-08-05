@@ -35,3 +35,4 @@ def predict_image(model, image_path, target_size=(224, 224)):
 
     predictions = model.predict(img_array)
     return predictions[0]
+    

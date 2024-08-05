@@ -1,21 +1,17 @@
 import tensorflow as tf
-from src.data_loader import load_dataset
-from src.model import create_model
-from src.preprocess import create_data_augmentation, prepare_for_training
 
-# Charger et préparer les données
-images, labels = load_dataset('chemin/vers/images', 'chemin/vers/labels')
-ds = tf.data.Dataset.from_tensor_slices((images, labels))
-ds = prepare_for_training(ds)
+def create_model(input_shape=(224, 224, 3), num_classes=2):
+    base_model = tf.keras.applications.MobileNetV2(input_shape=input_shape,
+                                                   include_top=False,
+                                                   weights='imagenet')
+    base_model.trainable = False
 
-# Créer et compiler le modèle
-model = create_model()
-model.compile(optimizer='adam',
-              loss='sparse_categorical_crossentropy',
-              metrics=['accuracy'])
+    model = tf.keras.Sequential([
+        base_model,
+        tf.keras.layers.GlobalAveragePooling2D(),
+        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dropout(0.2),
+        tf.keras.layers.Dense(num_classes, activation='softmax')
+    ])
 
-# Entraîner le modèle
-history = model.fit(ds, epochs=10)  # Ajustez le nombre d'époques selon vos besoins
-
-# Sauvegarder les poids du modèle
-model.save_weights('model_weights.h5')
+    return model

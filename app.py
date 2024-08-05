@@ -1,14 +1,18 @@
+import os
+import sys
+
+# Ajoutez le répertoire courant au chemin Python
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(current_dir)
+
 import streamlit as st
 import tensorflow as tf
 from PIL import Image
 import numpy as np
+
+# Importez vos modules
 from src.utils import predict_image
 from src.model import create_model
-
-# Charger le modèle (assurez-vous d'avoir un modèle entraîné)
-model = create_model()
-model.load_weights('path_to_your_trained_weights.h5')
-
 st.title('Classification 2D des dents')
 
 uploaded_file = st.file_uploader("Choisissez une image de dent...", type=["jpg", "png"])
