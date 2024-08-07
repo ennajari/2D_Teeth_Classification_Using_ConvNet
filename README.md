@@ -48,7 +48,7 @@ Copyprojet_classification_dents/
 - **Contenu :**
   - Définition de l'architecture du ConvNet.
   - Entraînement du modèle.
-  - Visualisation des courbes d'apprentissage (précision, perte).
+  - Visualisation des courbes d'apprentissage
 
 #### d. 4_evaluation.ipynb
 
@@ -65,7 +65,7 @@ Copyprojet_classification_dents/
 - **Objectif :** Chargement et préparation des données.
 - **Contenu :**
   - Fonctions pour charger les images et les labels.
-  - Prétraitement basique des données (redimensionnement, normalisation).
+  - Prétraitement basique des données 
 
 #### b. preprocess.py
 
@@ -78,7 +78,7 @@ Copyprojet_classification_dents/
 - **Objectif :** Définition et compilation du modèle ConvNet.
 - **Contenu :**
   - Définition de l'architecture du réseau.
-  - Compilation du modèle avec les hyperparamètres (optimiseur, fonction de perte).
+  - Compilation du modèle avec les hyperparamètres
 
 #### d. utils.py
 
@@ -91,4 +91,4 @@ Copyprojet_classification_dents/
 
 - **Objectif :** Spécifier les dépendances du projet.
 - **Contenu :**
-  - Liste des bibliothèques nécessaires (par exemple : numpy, pandas, tensorflow/pytorch, matplotlib, etc.).
+  - Liste des bibliothèques nécessaires
